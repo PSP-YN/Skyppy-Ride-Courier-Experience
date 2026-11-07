@@ -8,14 +8,14 @@ Independent, research-led UI/UX challenge concept for Skyppy ride booking and in
 - Interactive prototype: https://skyppy-mobility-logistics-pspyn.vercel.app
 - Research-led case study: https://skyppy-mobility-logistics-pspyn.vercel.app/case-study.html
 - GitHub: https://github.com/PSP-YN/Skyppy-Ride-Courier-Experience
-- Existing Figma file: https://www.figma.com/design/ZU7CeDZIHahNWvefp6ZMsS/Skyppy-Ride-Courier-Experience
+- Supplemental Figma file (public permission not verified): https://www.figma.com/design/ZU7CeDZIHahNWvefp6ZMsS/Skyppy-Ride-Courier-Experience
 
 ## Included flows
 - Ride: pickup/drop, schematic route, vehicle comparison, itemized sample fare, matching, driver details, trip state, share/SOS/support preview, demo payment and rating.
 - Driver: incoming request, accept/decline, arrival, start and complete trip.
-- Courier: sender/receiver details, package category, weight, pickup window, sample estimate, shipment timeline and exception simulation.
-- Receiver: sample shipment summary, demo PIN confirmation and issue-reporting path.
-- SMB: multi-shipment table, status filter, sample row addition and CSV export.
+- Courier: sender/receiver details, package category, weight-based sample estimate, declared-value validation, dimensions/handling notes, pickup scheduling, shipment timeline and reschedule/return/support exception actions.
+- Receiver: package-condition check, physical-handover acknowledgement, demo PIN confirmation, local proof-of-delivery preview and issue-reporting path.
+- SMB: multi-shipment table, status filter, sample row addition, local CSV import (1 MB/100-row preview limit) and CSV export.
 - Accessibility/resilience: responsive layout, semantic controls, keyboard focus, reduced motion, Side-by-side English/Kannada labels for key fields, partial language toggle and low-data mode.
 
 ## Skyppy public channel research
