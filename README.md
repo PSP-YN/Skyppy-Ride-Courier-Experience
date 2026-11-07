@@ -4,6 +4,9 @@ Independent, research-led UI/UX challenge concept for Skyppy ride booking and in
 
 > Scope: interactive design prototype only. It does not create real bookings, contact drivers, dispatch couriers, calculate live tariffs, use GPS/maps, process payments, send OTPs or persist shipment records to a backend.
 
+## Submission profile
+- Judge-ready summary and scope: [SUBMISSION.md](SUBMISSION.md)
+
 ## Live links
 - Interactive prototype: https://skyppy-mobility-logistics-pspyn.vercel.app
 - Research-led case study: https://skyppy-mobility-logistics-pspyn.vercel.app/case-study.html
