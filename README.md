@@ -16,7 +16,7 @@ Independent, research-led UI/UX challenge concept for Skyppy ride booking and in
 - Courier: sender/receiver details, package category, weight, pickup window, sample estimate, shipment timeline and exception simulation.
 - Receiver: sample shipment summary, demo PIN confirmation and issue-reporting path.
 - SMB: multi-shipment table, status filter, sample row addition and CSV export.
-- Accessibility/resilience: responsive layout, semantic controls, keyboard focus, reduced motion, English/Kannada concept toggle and low-data mode.
+- Accessibility/resilience: responsive layout, semantic controls, keyboard focus, reduced motion, Side-by-side English/Kannada labels for key fields, partial language toggle and low-data mode.
 
 ## Skyppy public channel research
 The official website (https://www.skyppy.app) links customers to Google Play package com.skyppylogistics.skyppyapp and drivers to a separate package com.skyppylogistics.driverpartner. No iOS App Store listing was verified in the public searches for this study; this is not proof that none exists. See case-study.html for research sources and caveats.
