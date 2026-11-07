@@ -27,6 +27,9 @@ The palette is provisional pending confirmation of Skyppy's approved logo and br
 ## Author
 **PSP — Computer Science student, product designer and builder.** Contribution: desk research synthesis, user-role mapping, information architecture, journey design, interactive HTML/CSS/JavaScript prototype, visual system and case-study documentation.
 
+## Product utility and resilience
+The prototype includes a local notification centre, optional browser alerts (permission-gated, not remote push), local support drafts, offline fallback, runtime error messaging, a branded 404 page, and privacy/terms pages describing the actual demo behavior. These controls do not contact Skyppy or an emergency service.
+
 ## Honest scope
 This is an interactive design prototype, not a live transport platform. Fares, identities, routes, PINs and shipment rows are fictional. There is no live dispatch, GPS, payment, authentication, OTP, persistent database or courier integration. No user interviews or moderated usability-test results are claimed.
 
