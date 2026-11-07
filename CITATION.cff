@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use or adapt this project, please cite the repository."
+title: "Skyppy Ride and Courier Experience"
+type: software
+authors:
+  - family-names: "PSP-YN"
+repository-code: "https://github.com/PSP-YN/Skyppy-Ride-Courier-Experience"
+url: "https://skyppy-mobility-logistics-pspyn.vercel.app"
+license: MIT
+version: "1.0.0"
+date-released: "2026-11-07"
