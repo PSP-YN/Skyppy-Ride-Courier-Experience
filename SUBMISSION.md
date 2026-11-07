@@ -37,3 +37,6 @@ This is an interactive design prototype, not a live transport platform. Fares, i
 - Interactive design: https://skyppy-mobility-logistics-pspyn.vercel.app
 - Case study: https://skyppy-mobility-logistics-pspyn.vercel.app/case-study.html
 - Source: https://github.com/PSP-YN/Skyppy-Ride-Courier-Experience
+- Privacy notice: https://skyppy-mobility-logistics-pspyn.vercel.app/privacy.html
+- Terms of use: https://skyppy-mobility-logistics-pspyn.vercel.app/terms.html
+- Support draft explanation: https://skyppy-mobility-logistics-pspyn.vercel.app/support.html
