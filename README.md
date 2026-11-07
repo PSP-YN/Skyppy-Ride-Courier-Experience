@@ -24,7 +24,7 @@ Independent, research-led UI/UX challenge concept for Skyppy ride booking and in
 ## Skyppy public channel research
 The official website (https://www.skyppy.app) links customers to Google Play package com.skyppylogistics.skyppyapp and drivers to a separate package com.skyppylogistics.driverpartner. No iOS App Store listing was verified in the public searches for this study; this is not proof that none exists. See case-study.html for research sources and caveats.
 
-## Run locally
+## Product utility and resilience pages\n- Notification centre: in-app history persisted in local browser storage; optional browser alerts require explicit permission. No remote push service is connected.\n- Support: creates a local-only support draft; it is not sent to Skyppy.\n- Privacy notice: `privacy.html`; Terms: `terms.html`; support explanation: `support.html`.\n- Recovery: branded `404.html`, offline fallback `offline.html`, and a conservative service worker for previously cached pages.\n- Offline mode and runtime errors surface clear status messages. Business-table actions open the relevant demo journey or a support draft.\n\nThese additions improve the interactive prototype; they do not create real dispatch, server-side accounts, payment, GPS, SMS, courier integrations or operational customer support.\n\n## Run locally
 No package manager or build step is required.
 
     git clone https://github.com/PSP-YN/Skyppy-Ride-Courier-Experience.git
