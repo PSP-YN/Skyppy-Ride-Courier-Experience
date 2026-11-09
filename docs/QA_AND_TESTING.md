@@ -1,66 +1,48 @@
 # QA and testing
 
-## Current test status
+## Current classification
 
-The project has been manually exercised as a browser prototype. There is no automated test suite, CI workflow, or formal accessibility audit in this repository. Do not interpret manual smoke checks as production certification.
+Manual browser smoke testing only. The project remains an interactive concept prototype, not a production transport or courier service. There is no automated test suite, CI workflow, formal accessibility audit, or operational integration in this repository.
 
-## Manual smoke checklist
+## Latest production smoke run — 2026-11-10
 
-### Homepage and navigation
-- [ ] Homepage loads at `/`.
-- [ ] Header links navigate to the ride, courier, business, and case-study sections.
-- [ ] Primary CTA scrolls to the interactive prototype.
-- [ ] Case-study link opens `/case-study.html`.
+Environment: Chromium browser automation against the production Vercel alias. Desktop viewport 1440 × 1000 CSS px; mobile viewport 390 × 844 CSS px.
 
-### Ride prototype
-- [ ] Ride mode is selected by default.
-- [ ] Pickup and drop fields can be edited.
-- [ ] Auto, bike, and cab controls update the selected state.
-- [ ] Selecting a ride updates the illustrative fare.
-- [ ] Review action displays the selected ride and entered route.
-- [ ] Empty pickup or drop displays a validation message.
-- [ ] Summary clearly says no driver request or booking was created.
+| Area | Result | Evidence / boundary |
+|---|---|---|
+| Main route and supporting pages | Pass | Main route, case study, privacy, terms, support, offline, design-system CSS, and app enhancement JS returned HTTP 200 |
+| Desktop app presentation | Pass | Centered 430 px phone frame; 760 px scrollable app viewport; no document-wide horizontal overflow |
+| Mobile presentation | Pass | Full-width app layout; 5-tab bottom navigation; no document-wide horizontal overflow; sample-data disclosure visible |
+| Section navigation | Pass | Ride, Courier, Driver, Receiver, and Business views switch using the bottom navigation |
+| Ride flow | Pass | Bike selection updates sample fare to ₹69; matching, driver assigned, trip in progress, demo payment, and rating states reached |
+| Courier sender | Pass | Required declaration and pickup date accepted; local demo shipment timeline created; successful submission clears validation feedback |
+| Driver flow | Pass | Incoming request → accepted → arrived → trip started → trip completed exercised across smoke runs |
+| Receiver flow | Partial | Invalid/empty demo verification value is rejected. Successful handover/POD path has not been independently re-tested in this run |
+| SMB dashboard | Pass | Sample row count increments from 4 to 5; status filter reduces visible rows |
+| Browser errors | Pass for tested ride path | No uncaught page errors observed during the tested ride journey |
 
-### Courier prototype
-- [ ] Courier tab switches to the parcel form.
-- [ ] Origin and destination can be edited.
-- [ ] Package category can be changed.
-- [ ] Estimate changes with package category.
-- [ ] Review action displays the entered route and sample estimate.
-- [ ] Empty origin or destination displays a validation message.
-- [ ] Summary clearly says no courier booking was created and estimate is not a live tariff.
+## Figma Make companion prototype
 
-### Responsive layout
-- [ ] Inspect at 360–390 CSS px.
-- [ ] Inspect at 768 CSS px.
-- [ ] Inspect at 1280 CSS px or wider.
-- [ ] Confirm no unintended horizontal overflow.
-- [ ] Confirm buttons and inputs remain usable at narrow widths.
+The authenticated Figma Make workspace preview reports 11 design pages and 244 named screens across Overview, Design System, Rider, Driver, Sender, Receiver, Business, System States, Profile & Legal, Prototype, and Accessibility. Its workspace history records successful production build and formatting checks. This is a separate Figma Make project; it is not automatically synchronized with this static GitHub application.
 
-### Case study
-- [ ] Case study route loads.
-- [ ] Content remains readable at mobile and desktop widths.
-- [ ] Prototype link returns to the homepage.
+## Remaining verification
 
-## Recommended browser matrix
+- [ ] Successful receiver handover and proof-of-delivery path.
+- [ ] Android Chrome on a physical device.
+- [ ] iOS Safari on a physical device.
+- [ ] Firefox desktop and mobile.
+- [ ] 768 px tablet viewport and 200% zoom/reflow.
+- [ ] Keyboard-only and screen-reader review.
+- [ ] Contrast and touch-target audit.
+- [ ] Native Kannada review by a fluent speaker.
+- [ ] Moderated usability sessions with riders, drivers, senders, receivers, and SMB operators.
 
-At minimum, validate current stable versions of:
-- Chrome on Android.
-- Firefox on Android.
-- Safari on iOS.
-- Chrome or Firefox on desktop.
+## Important limitations
 
-## Accessibility checks to add
-
-- Keyboard-only navigation and visible focus.
-- Screen-reader labels and dynamic status announcements.
-- Contrast checks for text, controls, borders, and focus.
-- Touch-target measurement.
-- Zoom/reflow at 200%.
-- Reduced motion behavior if animation is introduced.
-- Kannada localization and text expansion.
-- Manual review with users who have relevant access needs.
+- No real GPS, geocoding, routing, dispatch, driver/courier availability, live tracking, authentication, OTP, payment processing, SMS, remote push, backend persistence, or customer-support submission is connected.
+- Fares, identities, locations, arrival estimates, shipment references, PINs, and business rows are fictional demo data.
+- The current Vercel production release was created from source files after a Git-based deployment attempt failed. Automatic GitHub-to-Vercel deployment is not yet verified.
 
 ## Reporting
 
-For each test run, record date, browser/device, viewport, steps, expected result, actual result, and pass/fail. A check should only be marked complete after it has actually been executed.
+For every future run, record date, browser/device, viewport, steps, expected result, actual result, and pass/fail. Do not mark a check complete until it has actually been executed.
