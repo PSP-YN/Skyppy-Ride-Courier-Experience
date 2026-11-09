@@ -11,7 +11,7 @@ Independent, research-led UI/UX challenge concept for Skyppy ride booking and in
 - Interactive prototype: https://skyppy-mobility-logistics-pspyn.vercel.app
 - Research-led case study: https://skyppy-mobility-logistics-pspyn.vercel.app/case-study.html
 - GitHub: https://github.com/PSP-YN/Skyppy-Ride-Courier-Experience
-- Figma Make mobile prototype (11 design pages / 244 named screens; account permissions may apply): https://www.figma.com/make/0pxBazK2YFe23E9hz24u8Q/Complete-Skyppy-Mobile-App
+- Figma Make mobile prototype (11 design pages / 244 named screens; Anyone can view enabled; use Share → Copy preview link for a link without AI chat history): https://www.figma.com/make/0pxBazK2YFe23E9hz24u8Q/Complete-Skyppy-Mobile-App
 - Supplemental Figma Design file (public permission not verified): https://www.figma.com/design/ZU7CeDZIHahNWvefp6ZMsS/Skyppy-Ride-Courier-Experience
 
 ## Included flows
