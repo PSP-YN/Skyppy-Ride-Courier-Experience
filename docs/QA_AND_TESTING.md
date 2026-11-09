@@ -2,9 +2,25 @@
 
 ## Current classification
 
-Manual browser smoke testing only. The project remains an interactive concept prototype, not a production transport or courier service. There is no automated test suite, CI workflow, formal accessibility audit, or operational integration in this repository.
+The project now has a repeatable Chromium Playwright smoke suite in GitHub Actions, plus manual browser smoke testing. It remains an interactive concept prototype, not a production transport or courier service. There is no formal accessibility audit or operational integration.
 
-## Latest production smoke run — 2026-11-10
+## Latest verified browser test — 2026-11-10
+
+GitHub Actions run **42689230197** completed successfully on commit **d38e4ba0dfb105d8bec169e69f31b0d99a0f67b1**. Result: **7 passed** in Chromium.
+
+| Automated check | Result | Evidence / boundary |
+|---|---|---|
+| Five primary journey tabs | Pass | Ride, Courier, Driver, Receiver and Business tabs open their corresponding views |
+| Ride fare | Pass | Bike selection updates the sample total to ₹69 |
+| Driver journey | Pass | Accept → arrived → trip started → trip completed |
+| Receiver invalid PIN | Pass | Incorrect demo PIN is rejected and no receipt is shown |
+| Receiver positive handover | Pass | Documented demo PIN 4821 plus checked handover and intact condition produces the local demo receipt |
+| SMB dashboard | Pass | Sample row count increments from 4 to 5 |
+| Narrow mobile layout | Pass | 320 px viewport has no document-wide horizontal overflow |
+
+The receiver test verifies the **client-side demo flow only**. It does not prove a real parcel was delivered, nor does it validate a production server, one-time PIN service, secure evidence storage or carrier event.
+
+## Latest production browser smoke run — 2026-11-10
 
 Environment: Chromium browser automation against the production Vercel alias. Desktop viewport 1440 × 1000 CSS px; mobile viewport 390 × 844 CSS px. Additional layout checks at 320 × 720, 768 × 900, and 1024 × 900 CSS px.
 
@@ -17,25 +33,10 @@ Environment: Chromium browser automation against the production Vercel alias. De
 | Ride flow | Pass | Bike selection updates sample fare to ₹69; matching, driver assigned, trip in progress, demo payment, and rating states reached |
 | Courier sender | Pass | Required declaration and pickup date accepted; local demo shipment timeline created; successful submission clears validation feedback |
 | Driver flow | Pass | Incoming request → accepted → arrived → trip started → trip completed exercised across smoke runs |
-| Receiver flow | Partial | Receiver screen exposes sample shipment SKP-DEMO-2401 and documents demo PIN 4821. The positive receipt action was not completed by browser automation: the interaction was blocked by the automation safety guard. This is a test-tool restriction, not evidence of an application defect. |
+| Receiver flow | Pass for demo | CI verified invalid PIN rejection and successful sample receipt; still no real delivery integration |
 | SMB dashboard | Pass | Sample row count increments from 4 to 5; status filter reduces visible rows |
 | Browser errors | Pass for tested ride path | No uncaught page errors observed during the tested ride journey |
 | Structural accessibility | Pass for inspected markup | All buttons have accessible names; all form controls have labels; no duplicate IDs; all images have alt attributes; visible keyboard focus outline detected. This is not a full WCAG audit |
-
-## Receiver positive-path test — manual execution required
-
-The production page exposes a demo shipment and sample PIN. To verify the positive path without automation:
-
-1. Open the app and select **Receiver**.
-2. Confirm the shipment reference is **SKP-DEMO-2401** and the page labels its status as sample data.
-3. Enter the on-screen demo PIN **4821**.
-4. Keep **Parcel condition** set to **Received · package intact**.
-5. Check **I confirm the parcel was physically handed to me** only when using the demo as a simulated handover.
-6. Select **Confirm receipt**.
-7. Expected result: a receipt panel appears with the shipment reference, good-condition status, local timestamp, and an explicit statement that PIN verification occurred in the demo only.
-8. Repeat with a wrong PIN and with the handover checkbox unchecked; both must be rejected. Select a damaged/missing/wrong-parcel condition and verify the success path is blocked in favour of issue reporting.
-
-This UI-only demo does not create a legally valid proof of delivery. A production implementation still requires server-issued one-time PINs, server-side validation, idempotency, consent, secure evidence storage, retention controls, and an auditable event record.
 
 ## Physical-device and accessibility test protocol
 
@@ -55,6 +56,8 @@ These checks require devices and human review that are not available to the brow
 
 The Figma Make preview reports 11 design pages and 244 named screens across Overview, Design System, Rider, Driver, Sender, Receiver, Business, System States, Profile & Legal, Prototype, and Accessibility. Its workspace history records successful production build and formatting checks. Figma Share displays “Anyone can view”; the “Copy preview link” option explicitly excludes AI chat history.
 
+The separate supplemental Figma Design file was inspected in the editor and currently shows three pages: **Design System**, **Rider App**, and **Project Hub**. It contains reusable component layers, but it is not a 244-screen mirror of the Make prototype.
+
 Figma Make and the static web app are separate deliverables. The web app currently implements five interactive journey areas (Ride, Courier, Driver, Receiver and Business) with shared visual tokens and demo state. It does **not** implement all 244 Figma frames one-for-one. Treating every Figma frame as a separate web route would also be incorrect: many frames represent validation, loading, empty, error, and success variants of one user task. The correct synchronization unit is a traceable mapping from each design frame to a web component, route, or explicit state.
 
 Current verified mapping:
@@ -65,7 +68,7 @@ Current verified mapping:
 | Rider | `#v-ride`, `#rideForm`, `#rideTrip` | Core ride-to-rating demo flow implemented |
 | Driver | `#v-driver` | Core accept/decline/arrive/start/complete demo flow implemented |
 | Sender | `#v-courier`, `#courierForm`, `#tracking` | Core parcel booking and sample timeline implemented |
-| Receiver | `#v-receiver`, `#confirmReceipt`, `#podReceipt` | PIN, handover, condition and issue paths exist; positive receipt path still needs manual verification |
+| Receiver | `#v-receiver`, `#confirmReceipt`, `#podReceipt` | PIN, handover, condition and issue paths implemented; positive demo receipt verified in CI |
 | Business | `#v-business` | Sample shipment list, filter and CSV preview implemented |
 | System States, Profile & Legal, Notifications, full onboarding and extended settings | Supporting pages and selected demo states only | Not one-for-one; further implementation and frame-level mapping required |
 
