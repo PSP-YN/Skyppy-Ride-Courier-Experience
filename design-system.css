@@ -140,3 +140,17 @@ button:focus-visible,a:focus-visible{outline:3px solid #9aaf32;outline-offset:3p
 .top nav{display:none!important}
 .top{justify-content:space-between;min-height:68px}
 @media(max-width:640px){.top{min-height:62px;padding:8px 0}.brand{font-size:27px}.utility{gap:4px}.utility button{font-size:10px;padding:8px 9px}}
+
+/* Above-the-fold composition: keep the product preview visible without hiding the demo boundary. */
+@media(min-width:981px){
+ .hero{padding:44px 0 24px;gap:34px}
+ .hero h1{font-size:clamp(46px,5vw,70px);line-height:1;max-width:920px;margin:14px 0 16px}
+ .hero p{font-size:18px;line-height:1.5;margin:14px 0;max-width:620px}
+ .hero-note{padding:18px 20px;font-size:11px}
+ .workspace>main{height:min(760px,calc(100vh - 130px));min-height:620px}
+}
+@media(max-width:640px){
+ .hero-note{display:block!important;padding:12px 14px;border-radius:14px;font-size:10px;line-height:1.55;box-shadow:none}
+ .hero{gap:12px}
+ .hero h1{max-width:100%}
+}
