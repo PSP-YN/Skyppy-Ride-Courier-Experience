@@ -135,3 +135,8 @@ button:focus-visible,a:focus-visible{outline:3px solid #9aaf32;outline-offset:3p
  .app-tabbar button{font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){.app-tabbar button{transition:none}}
+
+/* The journey switcher lives inside the app frame; the outer header stays quiet. */
+.top nav{display:none!important}
+.top{justify-content:space-between;min-height:68px}
+@media(max-width:640px){.top{min-height:62px;padding:8px 0}.brand{font-size:27px}.utility{gap:4px}.utility button{font-size:10px;padding:8px 9px}}
