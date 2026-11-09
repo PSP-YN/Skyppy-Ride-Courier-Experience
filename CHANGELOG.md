@@ -25,3 +25,6 @@ Notable project changes are recorded here.
 - Cleared stale validation feedback after successful ride and courier form submissions.
 - Verified production routes and representative ride, courier, driver, and SMB demo interactions.
 - Figma Make companion prototype reports 11 design pages and 244 named screens; its build and formatting checks passed in its workspace.
+
+- Extended responsive QA to 320, 390, 768, 1024 and 1440 px widths; added a structural accessibility markup check.
+- Confirmed Figma Make Share is set to Anyone can view and copied its preview link using the no-AI-chat-history option.
