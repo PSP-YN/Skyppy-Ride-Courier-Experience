@@ -99,3 +99,39 @@ button:focus-visible,a:focus-visible{outline:3px solid #9aaf32;outline-offset:3p
 }
 @media(max-width:390px){.panel{padding:14px}.grid3{grid-template-columns:1fr}.choice{min-height:75px}.panel .head{flex-direction:column}.stats{grid-template-columns:1fr}.hero h1{font-size:37px}}
 @media(prefers-reduced-motion:reduce){.view.active{animation:none}.choice,.btn,.top nav button{transition:none}}
+
+/* Native-app presentation aligned with the Figma Make prototype. */
+.app-topbar{display:flex;align-items:center;justify-content:space-between;padding:20px 22px 14px;background:#fff;border-bottom:1px solid var(--line)}
+.app-topbar>div{display:grid;gap:2px}.app-topbar strong{font-size:22px;font-weight:950;letter-spacing:-1.4px}.app-topbar span{font-size:8px;letter-spacing:1.1px;font-weight:800;color:var(--muted)}
+.app-location{display:flex;align-items:center;gap:6px;padding:8px 10px;border-radius:999px;background:#f3f5ed;color:#56625a!important;letter-spacing:.6px!important}
+.app-location i{width:6px;height:6px;border-radius:50%;background:#88a54a}
+.app-tabbar{position:sticky;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;padding:9px 8px max(10px,env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line);backdrop-filter:blur(16px)}
+.app-tabbar button{display:grid;justify-items:center;gap:3px;min-width:0;padding:7px 2px;border:0;border-radius:12px;background:transparent;color:#7a847d;font-size:9px;font-weight:750}
+.app-tabbar button span{font-size:17px;line-height:1.2}
+.app-tabbar button.active{background:#f1f5df;color:var(--ink)}
+@media(min-width:981px){
+ .workspace{display:flex;justify-content:center;align-items:flex-start;padding:18px 0 46px}
+ .workspace>.rail{display:none}
+ .workspace>main{width:min(430px,100%);height:min(790px,calc(100vh - 190px));min-height:650px;overflow:auto;overscroll-behavior:contain;border:9px solid #172522;border-radius:38px;background:#fff;box-shadow:0 28px 90px rgba(23,37,34,.18),0 0 0 1px rgba(23,37,34,.08);scrollbar-width:thin;scrollbar-color:#cbd3c9 transparent}
+ .workspace>main .panel{border:0;border-radius:0;box-shadow:none;margin:0;padding:22px 20px}
+ .workspace>main .panel+.panel{border-top:1px solid var(--line)}
+ .workspace>main .app-tabbar{position:sticky}
+ .workspace>main .view.active{animation:none}
+ .workspace>main .map{height:164px}
+}
+@media(max-width:980px){
+ .workspace{display:block;padding:12px 0 28px}
+ .workspace>.rail{display:none}
+ .workspace>main{width:100%;min-width:0}
+ .app-topbar{padding:16px 18px 12px}
+ .app-tabbar{position:sticky}
+}
+@media(max-width:640px){
+ .workspace{padding:0;margin:0 -14px}
+ .workspace>main{border-radius:0;border:0;box-shadow:none;min-height:calc(100svh - 72px);overflow:visible}
+ .workspace>main .panel{padding:18px 16px;border-radius:0}
+ .app-topbar{padding:15px 17px 12px}
+ .app-tabbar{padding-bottom:max(12px,env(safe-area-inset-bottom))}
+ .app-tabbar button{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.app-tabbar button{transition:none}}
