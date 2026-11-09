@@ -1,4 +1,4 @@
-# QA and testing
+# QA and release closure
 
 ## Current classification
 
@@ -17,32 +17,69 @@ Environment: Chromium browser automation against the production Vercel alias. De
 | Ride flow | Pass | Bike selection updates sample fare to ₹69; matching, driver assigned, trip in progress, demo payment, and rating states reached |
 | Courier sender | Pass | Required declaration and pickup date accepted; local demo shipment timeline created; successful submission clears validation feedback |
 | Driver flow | Pass | Incoming request → accepted → arrived → trip started → trip completed exercised across smoke runs |
-| Receiver flow | Partial | Invalid/empty demo verification value is rejected. Successful handover/POD path has not been independently re-tested in this run |
+| Receiver flow | Partial | Receiver screen exposes sample shipment SKP-DEMO-2401 and documents demo PIN 4821. The positive receipt action was not completed by browser automation: the interaction was blocked by the automation safety guard. This is a test-tool restriction, not evidence of an application defect. |
 | SMB dashboard | Pass | Sample row count increments from 4 to 5; status filter reduces visible rows |
 | Browser errors | Pass for tested ride path | No uncaught page errors observed during the tested ride journey |
 | Structural accessibility | Pass for inspected markup | All buttons have accessible names; all form controls have labels; no duplicate IDs; all images have alt attributes; visible keyboard focus outline detected. This is not a full WCAG audit |
 
-## Figma Make companion prototype
+## Receiver positive-path test — manual execution required
 
-The Figma Make preview reports 11 design pages and 244 named screens across Overview, Design System, Rider, Driver, Sender, Receiver, Business, System States, Profile & Legal, Prototype, and Accessibility. Its workspace history records successful production build and formatting checks. Figma Share displays “Anyone can view”; the “Copy preview link” option explicitly excludes AI chat history. This is a separate Figma Make project; it is not automatically synchronized with this static GitHub application.
+The production page exposes a demo shipment and sample PIN. To verify the positive path without automation:
 
-## Remaining verification
+1. Open the app and select **Receiver**.
+2. Confirm the shipment reference is **SKP-DEMO-2401** and the page labels its status as sample data.
+3. Enter the on-screen demo PIN **4821**.
+4. Keep **Parcel condition** set to **Received · package intact**.
+5. Check **I confirm the parcel was physically handed to me** only when using the demo as a simulated handover.
+6. Select **Confirm receipt**.
+7. Expected result: a receipt panel appears with the shipment reference, good-condition status, local timestamp, and an explicit statement that PIN verification occurred in the demo only.
+8. Repeat with a wrong PIN and with the handover checkbox unchecked; both must be rejected. Select a damaged/missing/wrong-parcel condition and verify the success path is blocked in favour of issue reporting.
 
-- [ ] Successful receiver handover and proof-of-delivery path.
-- [ ] Android Chrome on a physical device.
-- [ ] iOS Safari on a physical device.
-- [ ] Firefox desktop and mobile.
-- [ ] 768 px tablet viewport and 200% zoom/reflow.
-- [ ] Keyboard-only and screen-reader review.
-- [ ] Contrast and touch-target audit.
-- [ ] Native Kannada review by a fluent speaker.
-- [ ] Moderated usability sessions with riders, drivers, senders, receivers, and SMB operators.
+This UI-only demo does not create a legally valid proof of delivery. A production implementation still requires server-issued one-time PINs, server-side validation, idempotency, consent, secure evidence storage, retention controls, and an auditable event record.
 
-## Important limitations
+## Physical-device and accessibility test protocol
+
+These checks require devices and human review that are not available to the browser automation session.
+
+- [ ] Android Chrome on a physical Android phone: test at default font/display scaling and one enlarged setting; verify safe-area spacing, bottom navigation, scroll behaviour, keyboard overlays, date picker and form controls.
+- [ ] iOS Safari on a physical iPhone: repeat the same checks, including safe areas and native input behaviour.
+- [ ] Firefox desktop and mobile: test navigation, forms, downloads and responsive layout.
+- [ ] 200% browser zoom/reflow: no clipped content or loss of functionality.
+- [ ] Keyboard-only: logical focus order, visible focus, no traps, operable dialogs and all primary actions.
+- [ ] Screen reader: meaningful landmarks, control names, status announcements, error associations and state changes.
+- [ ] Contrast and target size: measure text/non-text contrast and verify practical touch targets; the existing structural scan is not a substitute.
+- [ ] Kannada: review all translated strings and mixed-language states with a fluent native speaker.
+- [ ] Moderated usability: observe at least one rider, driver, sender, receiver and SMB operator completing their primary task; record task success, errors, completion time and qualitative feedback.
+
+## Figma Make companion and code parity
+
+The Figma Make preview reports 11 design pages and 244 named screens across Overview, Design System, Rider, Driver, Sender, Receiver, Business, System States, Profile & Legal, Prototype, and Accessibility. Its workspace history records successful production build and formatting checks. Figma Share displays “Anyone can view”; the “Copy preview link” option explicitly excludes AI chat history.
+
+Figma Make and the static web app are separate deliverables. The web app currently implements five interactive journey areas (Ride, Courier, Driver, Receiver and Business) with shared visual tokens and demo state. It does **not** implement all 244 Figma frames one-for-one. Treating every Figma frame as a separate web route would also be incorrect: many frames represent validation, loading, empty, error, and success variants of one user task. The correct synchronization unit is a traceable mapping from each design frame to a web component, route, or explicit state.
+
+Current verified mapping:
+
+| Figma area | Web implementation | Parity |
+|---|---|---|
+| Design System | `design-system.css` plus shared app styles | Visual direction and core tokens aligned; Figma variables/components not machine-synced |
+| Rider | `#v-ride`, `#rideForm`, `#rideTrip` | Core ride-to-rating demo flow implemented |
+| Driver | `#v-driver` | Core accept/decline/arrive/start/complete demo flow implemented |
+| Sender | `#v-courier`, `#courierForm`, `#tracking` | Core parcel booking and sample timeline implemented |
+| Receiver | `#v-receiver`, `#confirmReceipt`, `#podReceipt` | PIN, handover, condition and issue paths exist; positive receipt path still needs manual verification |
+| Business | `#v-business` | Sample shipment list, filter and CSV preview implemented |
+| System States, Profile & Legal, Notifications, full onboarding and extended settings | Supporting pages and selected demo states only | Not one-for-one; further implementation and frame-level mapping required |
+
+Figma MCP editing was not completed in this closure pass because the connected Figma Starter plan returned a tool-call-limit/paywall error. No claim is made that the supplemental Figma Design file was modified or synchronized. The Make prototype remains separately viewable.
+
+## Automatic deployment status
+
+The existing Vercel project is **not linked to GitHub**. Its latest production deployment is READY, but a Git push has not been proven to trigger a new deployment. The project was previously deployed from source files after a Git-based deployment attempt failed. A secure Vercel sign-in flow has been opened; authentication remains pending. Do not create a duplicate Vercel project or move production domains as a workaround without reviewing the account state first.
+
+## Important product limitations
 
 - No real GPS, geocoding, routing, dispatch, driver/courier availability, live tracking, authentication, OTP, payment processing, SMS, remote push, backend persistence, or customer-support submission is connected.
 - Fares, identities, locations, arrival estimates, shipment references, PINs, and business rows are fictional demo data.
-- The current Vercel production release was created from source files after a Git-based deployment attempt failed. Automatic GitHub-to-Vercel deployment is not yet verified.
+- A demo receipt is not proof of an actual delivery and must never be represented as a real carrier event.
 
 ## Reporting
 
