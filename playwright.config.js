@@ -3,12 +3,16 @@ const { defineConfig } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: false,
-  retries: process.env.CI ? 1 : 0,
+  retries: 0,
+  timeout: 20_000,
+  expect: { timeout: 5_000 },
   reporter: process.env.CI ? 'github' : 'list',
   use: {
     baseURL: 'http://127.0.0.1:4173',
     browserName: 'chromium',
     headless: true,
+    actionTimeout: 8_000,
+    navigationTimeout: 15_000,
     viewport: { width: 1280, height: 900 }
   },
   webServer: {
