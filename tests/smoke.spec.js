@@ -29,7 +29,7 @@ test('ride vehicle selection updates the sample fare', async ({ page }) => {
 
 test('driver demo reaches trip completion', async ({ page }) => {
   await page.locator(tab('driver')).click();
-  await page.locator('#accept').click();
+  await page.locator('#driverAccept').click();
   await page.locator('#driverStep').click(); // arrived
   await page.locator('#driverStep').click(); // trip started
   await page.locator('#driverStep').click(); // trip completed
@@ -47,7 +47,7 @@ test('receiver rejects an incorrect PIN', async ({ page }) => {
 
 test('receiver demo PIN confirms the simulated handover and receipt', async ({ page }) => {
   await page.locator(tab('receiver')).click();
-  await expect(page.getByText('SKP-DEMO-2401')).toBeVisible();
+  await expect(page.locator('#v-receiver').getByText('SKP-DEMO-2401')).toBeVisible();
   await page.locator('#pin').fill('4821');
   await page.locator('#handover').check();
   await page.locator('#confirmReceipt').click();
