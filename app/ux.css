@@ -1,0 +1,119 @@
+/* Skyppy UX refresh — clearer hierarchy, readable type, calmer mobile-first controls. */
+.phone-device .app-header{box-shadow:0 1px 0 rgba(23,37,34,.025)}
+.phone-device .app-main{background:#fbfcf8;padding-left:17px;padding-right:17px}
+.phone-device .screen-toolbar{height:45px}
+.phone-device .breadcrumbs{font-size:10px;gap:7px}
+.phone-device .sample-chip{font-size:9px;padding:6px 9px}
+.phone-device .screen-intro{padding:22px 0 17px}
+.phone-device .screen-eyebrow{font-size:9px;letter-spacing:1px}
+.phone-device .eyebrow-mark{width:25px;height:25px;font-size:12px}
+.phone-device .screen-intro h1{font-size:27px;letter-spacing:-1.15px;line-height:1.08;margin:11px 0 8px}
+.phone-device .screen-intro p{font-size:12px;line-height:1.55;color:#65736a}
+.phone-device .screen-index{font-size:8px;padding-top:9px}
+.phone-device .metric-grid{gap:8px;margin-bottom:13px}
+.phone-device .metric-card{min-height:78px;padding:12px 13px;border-radius:13px}
+.phone-device .metric-card span{font-size:10px;line-height:1.35}
+.phone-device .metric-card strong{font-size:20px;margin-top:8px}
+.phone-device .metric-card small{font-size:9px}
+.phone-device .content-grid{gap:9px;margin-bottom:13px}
+.phone-device .info-card{min-height:88px;padding:13px;border-radius:13px;gap:10px;align-items:center}
+.phone-device .info-icon{width:34px;height:34px;border-radius:10px;font-size:14px}
+.phone-device .info-copy b{font-size:12px;line-height:1.35}
+.phone-device .info-copy p{font-size:10.5px;line-height:1.45;margin:5px 0}
+.phone-device .info-copy small{font-size:9px}
+.phone-device .info-value{font-size:14px}
+.phone-device .demo-form,.phone-device .timeline-card,.phone-device .table-card{padding:15px;border-radius:14px;margin-bottom:13px}
+.phone-device .form-heading{margin-bottom:13px}
+.phone-device .form-heading b,.phone-device .table-head>div>b{font-size:13px}
+.phone-device .form-heading span{font-size:8px}
+.phone-device .field{margin-bottom:12px}
+.phone-device .field>span{font-size:11px;letter-spacing:0;margin-bottom:7px}
+.phone-device .field input,.phone-device .field select,.phone-device .field textarea{min-height:46px;padding:11px 12px;border-radius:10px;font-size:13px;background:#fff}
+.phone-device .field textarea{min-height:88px}
+.phone-device .check-control{min-height:46px;font-size:11px}
+.phone-device .form-footer{gap:11px;padding-top:13px}
+.phone-device .form-footer small{font-size:8px;letter-spacing:.7px}
+.phone-device .button{min-height:46px;padding:12px 16px;border-radius:11px;font-size:12px;gap:10px}
+.phone-device .button span{font-size:15px}
+.phone-device .timeline-card{padding:15px}
+.phone-device .section-label{font-size:9px;letter-spacing:1px}
+.phone-device .timeline{margin-top:10px}
+.phone-device .timeline-row{grid-template-columns:27px minmax(0,1fr) auto;gap:10px;padding:13px 0}
+.phone-device .timeline-marker{width:25px;height:25px;font-size:9px}
+.phone-device .timeline-copy b{font-size:12px}
+.phone-device .timeline-copy p{font-size:10.5px;line-height:1.5}
+.phone-device .timeline-row>small{font-size:9px}
+.phone-device .notice{padding:12px 13px;border-radius:12px;gap:9px}
+.phone-device .notice>span{width:21px;height:21px;font-size:10px}
+.phone-device .notice p{font-size:10.5px;line-height:1.55}
+.phone-device .screen-actions{gap:9px;margin:8px 0 20px}
+.phone-device .screen-actions .button{min-height:48px;font-size:12px}
+.phone-device .table-head{gap:8px}
+.phone-device .record-count{font-size:9px}
+.phone-device th{font-size:9px}
+.phone-device td{font-size:10px}
+.phone-device th,.phone-device td{padding:11px 10px}
+.phone-device .status-pill{font-size:9px}
+.phone-device .app-footer{font-size:8px;line-height:1.6}
+.phone-device .mobile-rolebar{height:70px;padding:7px 8px calc(6px + env(safe-area-inset-bottom))}
+.phone-device .mobile-rolebar button{font-size:10px;gap:4px}
+.phone-device .mobile-rolebar button b{font-size:19px}
+.phone-device .mobile-rolebar button.active b{width:32px;height:27px}
+.phone-device .nav-item{font-size:12px;min-height:43px}
+.phone-device .nav-group-title,.phone-device .sidebar-label{font-size:9px}
+.phone-device .sample-card b{font-size:12px}
+.phone-device .sample-card p{font-size:10px}
+.phone-device .sidebar-utility{font-size:11px}
+.phone-device .toast{font-size:11px;line-height:1.45}
+.phone-device .modal{padding:24px}
+.phone-device .modal h2{font-size:23px}
+.phone-device .modal p:not(.eyebrow){font-size:12px}
+.phone-device .modal .eyebrow{font-size:9px}
+.phone-device .modal-actions .button{font-size:12px}
+
+/* A journey indicator gives each multi-step flow a visible sense of progress. */
+.journey-progress{display:flex;align-items:center;gap:9px;margin:0 0 16px;padding:11px 12px;background:#f0f3e9;border:1px solid #e5eadb;border-radius:12px}
+.journey-progress-copy{display:flex;flex-direction:column;gap:3px;min-width:80px}
+.journey-progress-copy strong{font-size:10px;letter-spacing:.35px;color:#35453b}
+.journey-progress-copy span{font-size:9px;color:#7b887c}
+.journey-progress-bars{display:flex;gap:4px;flex:1}
+.journey-progress-bars i{height:5px;flex:1;border-radius:10px;background:#dce3d3}
+.journey-progress-bars i.done{background:#82934d}
+.journey-progress-bars i.current{background:#172522}
+.route-visual{position:relative;overflow:hidden;min-height:150px;margin:0 0 14px;border-radius:16px;background:#e9eee2;border:1px solid #dfe7d7}
+.route-visual svg{position:absolute;inset:0;width:100%;height:100%}
+.route-visual .route-tag{position:absolute;z-index:1;display:flex;align-items:center;gap:7px;padding:8px 10px;background:#fff;border:1px solid #e5e9e0;border-radius:10px;box-shadow:0 5px 15px #17252210;font-size:10px;font-weight:800}
+.route-visual .route-tag small{display:block;color:#819084;font-size:8px;font-weight:600;margin-top:2px}
+.route-visual .route-tag.pickup{left:12px;top:12px}
+.route-visual .route-tag.dropoff{right:12px;bottom:12px}
+.route-visual .route-dot{width:8px;height:8px;border-radius:50%;background:#91a64f;box-shadow:0 0 0 4px #91a64f24}
+.route-visual .route-dot.end{background:#c66a42;box-shadow:0 0 0 4px #c66a4224}
+.route-visual .route-foot{position:absolute;left:12px;bottom:12px;z-index:1;padding:6px 8px;background:#172522;color:#fff;border-radius:7px;font-size:8px;letter-spacing:.4px}
+.welcome-start{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px;margin:0 0 14px;border-radius:15px;background:#172522;color:#fff}
+.welcome-start-copy{min-width:0}
+.welcome-start-copy strong{display:block;font-size:14px}
+.welcome-start-copy span{display:block;margin-top:4px;color:#d4ddd2;font-size:10px;line-height:1.4}
+.welcome-start .button{flex:none;background:#d9ee68;color:#172522;min-height:42px;padding:10px 12px}
+.phone-device .welcome-start .button{font-size:10px}
+.phone-device .welcome-start-copy strong{font-size:13px}
+.phone-device .welcome-start-copy span{font-size:10px}
+.phone-device .content-grid.welcome-roles .info-card{min-height:90px}
+.phone-device .content-grid.welcome-roles .info-card:first-child{border-color:#cbd6b2;background:#f6f8ef}
+.phone-device .info-card.choice-card{cursor:pointer;transition:border-color .16s,background .16s,transform .16s}
+.phone-device .info-card.choice-card:hover{border-color:#aab98a;transform:translateY(-1px)}
+.phone-device .info-card.choice-card.selected{border:2px solid #82934d;background:#f5f7ee;padding:12px}
+.phone-device .info-card.choice-card:focus-visible{outline:3px solid #b85d36;outline-offset:2px}
+.phone-device .screen-actions .button-primary{box-shadow:0 7px 16px #17252218}
+@media(max-width:760px){
+ .phone-device .screen-intro{padding:20px 0 15px}
+ .phone-device .screen-intro h1{font-size:28px}
+ .phone-device .screen-intro p{font-size:13px}
+ .phone-device .metric-card span{font-size:10px}
+ .phone-device .info-copy b{font-size:13px}
+ .phone-device .info-copy p{font-size:11px}
+ .phone-device .field>span{font-size:12px}
+ .phone-device .field input,.phone-device .field select,.phone-device .field textarea{font-size:14px}
+ .phone-device .notice p{font-size:11px}
+ .phone-device .mobile-rolebar button{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.phone-device .info-card.choice-card{transition:none}}
