@@ -3,7 +3,7 @@
 **Independent UI/UX concept · Ride booking + intercity courier**
 
 ## Submission summary
-A research-led mobility and logistics experience concept built around one principle: users should understand the cost, status, responsibility and next action at every step. It covers the passenger journey from route selection and itemized fare review through driver matching, safety, payment and rating; the sender journey for intercity parcels; separate driver and receiver workflows; and a desktop SMB shipment workspace.
+A research-led mobility and logistics experience concept built around one principle: users should understand the cost, status, responsibility and next action at every step. The public landing page introduces the product, then opens a separate static application with 46 navigable screen definitions across rider, driver, sender, receiver, business and shared account journeys. It covers the passenger journey from route selection and itemized fare review through driver matching, safety, payment and rating; the sender journey for intercity parcels; separate driver and receiver workflows; and a desktop SMB shipment workspace.
 
 The design emphasizes transparent estimates, explicit operational states, recoverable exceptions, role-specific workflows, responsive mobile-first layouts, low-data behavior and English/Kannada labels on key fields.
 
@@ -34,7 +34,7 @@ The prototype includes a local notification centre, optional browser alerts (per
 This is an interactive design prototype, not a live transport platform. Fares, identities, routes, PINs and shipment rows are fictional. There is no live dispatch, GPS, payment, authentication, OTP, persistent database or courier integration. No user interviews or moderated usability-test results are claimed.
 
 ## Submission links
-- Interactive design: https://skyppy-mobility-logistics-pspyn.vercel.app
+- Public landing page: https://skyppy-mobility-logistics-pspyn.vercel.app/\n- Static application (46 screens): https://skyppy-mobility-logistics-pspyn.vercel.app/app/
 - Case study: https://skyppy-mobility-logistics-pspyn.vercel.app/case-study.html
 - Source: https://github.com/PSP-YN/Skyppy-Ride-Courier-Experience
 - Privacy notice: https://skyppy-mobility-logistics-pspyn.vercel.app/privacy.html
