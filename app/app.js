@@ -127,4 +127,7 @@
   renderScreen(screens[initial]?initial:"welcome",false);
   document.documentElement.dataset.staticDemo="true";
   $("#screenMount").setAttribute("data-screen-count",String(count));
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    window.addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js").catch(() => {}));
+  }
 })();
