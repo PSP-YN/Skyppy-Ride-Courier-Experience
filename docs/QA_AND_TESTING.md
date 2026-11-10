@@ -4,39 +4,59 @@
 
 The public root route is the Skyppy landing page. The application is a separate static experience at `/app/`. The previous single-page prototype is retained at `/app/legacy-demo.html`.
 
-The app contains 46 navigable screen definitions across Rider (11), Driver (9), Sender (9), Receiver (4), Business (7), and shared account/utility screens (5), plus the welcome workspace chooser.
+The app contains **46 navigable screen definitions**: 11 Rider, 9 Driver, 9 Sender, 4 Receiver, 7 Business, 5 shared account/utility screens, and the welcome workspace chooser. The role sidebars expose all 45 non-welcome screens; shared utility screens are available in each workspace.
 
-## Automated browser coverage
+## Latest automated test result — 2026-11-10
 
-GitHub Actions workflow: `.github/workflows/browser-smoke.yml`.
+GitHub Actions run **42868388528** completed successfully on commit **01ad1ffe60ea3b2120f9d43116a20f26a3d5a3e1**.
 
-The Chromium Playwright suite covers:
-- Landing page title, hero, and application entry links.
-- Separate app route and screen catalogue count (40+).
-- Navigation between all five role workspaces.
-- Rider booking flow from pickup through rating.
-- Driver request, pickup, active trip and earnings.
-- Receiver rejection of an incorrect demo PIN.
-- Receiver positive demo receipt only after correct demo PIN and physical-handover acknowledgement.
-- Receiver routing to issue reporting when parcel condition is damaged.
-- Business shipment list, analytics and billing.
-- 320 px viewport overflow on landing and app routes.
+- Chromium Playwright: **11 passed**
+- No failed tests.
+- The run tested the committed landing page, separate app route, workspace switching, rider and driver flows, receiver PIN validation and issue routing, business screens, and 320 px layouts.
 
-Automated results are recorded by the GitHub Actions run linked from the repository's Actions tab. Do not report a run as passing until its final status is completed successfully.
+Run: https://github.com/PSP-YN/Skyppy-Ride-Courier-Experience/actions/runs/42868388528
 
-## Manual production smoke checklist
+## Production deployment — 2026-11-10
 
-- [ ] Landing page opens at `/` and the primary CTA navigates to `/app/`.
-- [ ] Application opens at `/app/` and all five workspace switches work.
-- [ ] Each role's sidebar screen list and mobile bottom role navigation work.
-- [ ] Deep links open the requested screen (for example `/app/?screen=sender-home`).
-- [ ] Form controls, modals, toasts, keyboard focus and browser back/forward behave correctly.
-- [ ] Landing and app layouts remain usable at 320, 390, 768, 1024 and 1440 CSS px.
-- [ ] Offline fallback and cached app shell work after the service worker has installed.
+The Vercel Git deployment is **READY**.
+
+- Project: `skyppy-mobility-logistics`
+- Git repository: `PSP-YN/Skyppy-Ride-Courier-Experience`
+- Branch: `main`
+- Deployed commit: `01ad1ffe60ea3b2120f9d43116a20f26a3d5a3e1`
+- Deployment: `dpl_7mcTV5rVs4KTae7NynfPLadkBu4u`
+- Production URL: https://skyppy-mobility-logistics-pspyn.vercel.app/
+
+Vercel deployment metadata reports source `git` and the GitHub repository/commit metadata. This confirms the existing project is Git-connected and the commit was deployed through that integration.
+
+## Production browser verification
+
+Chromium verification against the production alias confirmed:
+
+- Landing page title, hero and primary app entry links render.
+- `/app/` opens the application separately from the landing page.
+- The application exposes a screen-count marker of **46**.
+- All five workspace selectors render the expected workspace and navigation.
+- All 65 sidebar navigation entries across the five workspaces were visited; every one rendered a screen heading. This represents 46 unique screen definitions with shared screens repeated in each workspace.
+- A direct link such as `/app/?screen=sender-home` opens the requested screen.
+- Receiver flow rejects an incorrect demo PIN and accepts the documented demo PIN only after handover acknowledgement, producing the sample receipt.
+- No uncaught page errors were observed during the all-screen navigation pass.
+- At a 320 px viewport, the app document measured 305 px content width against a 305 px viewport; no horizontal overflow was observed. The GitHub Actions suite independently checks 320 px overflow on both landing and app routes.
+
+## Screen inventory
+
+| Workspace | Screens |
+|---|---|
+| Rider | Ride overview, ride options, fare review, matching, driver assigned, trip in progress, payment, rating, history, receipt, cancellation |
+| Driver | Partner onboarding, document checklist, dashboard, incoming request, pickup navigation, active trip, earnings, trip history, partner profile |
+| Sender | Courier overview, sender/receiver details, parcel details, pickup schedule, shipment review, created confirmation, tracking, exception handling, shipment history |
+| Receiver | Incoming delivery, PIN and handover verification, demo receipt, issue reporting |
+| Business | Overview, shipment list, create shipment, bulk dispatch, analytics, team access, billing |
+| Shared | Notifications, profile, settings, help and accessibility |
 
 ## Accessibility and physical-device verification
 
-The markup uses semantic headings, form labels, accessible names, visible focus styling, and reduced-motion CSS. These are implementation measures, not a WCAG conformance claim.
+The implementation uses semantic headings, labels for generated form controls, descriptive action text, visible focus styling, and reduced-motion CSS. This is not a formal WCAG conformance claim.
 
 Still requires physical devices and/or human review:
 - [ ] Android Chrome on a physical Android phone, including enlarged display/font settings, safe areas and keyboard overlays.
@@ -54,10 +74,6 @@ Still requires physical devices and/or human review:
 The Figma Make companion reports 11 design pages and 244 named screens. The supplemental Figma Design file contains three pages: Design System, Rider App and Project Hub. The new static website is an independently implemented screen library with 46 navigable screen definitions; it is not a one-for-one import of all 244 Make frames. Design references and web implementation are separate deliverables.
 
 Figma MCP editing was not completed because the connected Starter plan reached its tool-call allowance. No claim is made that the Figma files were modified or synchronized.
-
-## Vercel and GitHub deployment
-
-The existing Vercel project `skyppy-mobility-logistics` is linked to GitHub repository `PSP-YN/Skyppy-Ride-Courier-Experience`. The deployment context confirms this repository link. Pushes to `main` should trigger production deployments through the existing integration. Verify the latest deployment is READY after this release; do not create a duplicate project or move domains.
 
 ## Static-demo limitations
 
