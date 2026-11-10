@@ -117,3 +117,5 @@
  .phone-device .mobile-rolebar button{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.phone-device .info-card.choice-card{transition:none}}
+
+@media(max-width:760px){.phone-device{height:calc(100dvh - 34px);min-height:calc(100dvh - 34px)}}
