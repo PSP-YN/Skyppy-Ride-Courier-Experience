@@ -97,13 +97,14 @@
     if(updateHistory)history.pushState({screen:id},"","#"+id);else history.replaceState({screen:id},"","#"+id);
     document.title=(names[id]||s.title)+" — Skyppy App";
   }
-  function go(id){if(!screens[id]){toast("That screen is not part of this prototype.");return}renderScreen(id);$("#screenContent").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})}
+  function go(id){if(!screens[id]){toast("That screen is not part of this prototype.");return}renderScreen(id);$(".app-layout").classList.remove("menu-open");$("#screenMenuButton").setAttribute("aria-expanded","false");$("#screenContent").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})}
   function toast(message){const el=$("#toast");el.textContent=message;el.hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.hidden=true,3600)}
   function openModal(title,body){$("#modalTitle").textContent=title;$("#modalBody").textContent=body;$("#modal").hidden=false;$("#modalConfirm").focus()}
   function closeModal(){$("#modal").hidden=true}
   document.addEventListener("click",e=>{
-    const goBtn=e.target.closest("[data-go]");if(goBtn){go(goBtn.dataset.go);return}
+    const goBtn=e.target.closest("[data-go]");if(goBtn){go(goBtn.dataset.go);$(".app-layout").classList.remove("menu-open");$("#screenMenuButton").setAttribute("aria-expanded","false");return}
     const roleBtn=e.target.closest("[data-role]");if(roleBtn){const role=roleBtn.dataset.role;go(roles[role].start);return}
+    if(e.target.closest("#screenMenuButton")){const open=$("#screenMenuButton").getAttribute("aria-expanded")!=="true";$(".app-layout").classList.toggle("menu-open",open);$("#screenMenuButton").setAttribute("aria-expanded",String(open));return}
     if(e.target.closest("#notificationsButton")){go("notifications");return}
     if(e.target.closest("#profileButton")){go("profile");return}
     if(e.target.closest("[data-demo]")){openModal("Preview action","This action is simulated in the static prototype. No booking, payment, message or operational request will be sent.");return}

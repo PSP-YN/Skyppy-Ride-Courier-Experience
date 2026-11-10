@@ -8,12 +8,17 @@ test('root route is a product landing page with an app entry point', async ({ pa
   await expect(page.getByRole('link', { name: /Explore all app screens/ })).toHaveAttribute('href', '/app/?screen=welcome');
 });
 
-test('application opens as a separate static experience with 40+ screens', async ({ page }) => {
+test('application opens in a mobile device preview with all 46 screens', async ({ page }) => {
   await page.goto('/app/');
   await expect(page).toHaveTitle(/Skyppy App/);
   await expect(page.getByRole('heading', { name: /A clearer way to move/ })).toBeVisible();
   const count = Number(await page.locator('#screenMount').getAttribute('data-screen-count'));
-  expect(count).toBeGreaterThanOrEqual(40);
+  expect(count).toBe(46);
+  await expect(page.locator('.phone-device')).toBeVisible();
+  await expect(page.locator('.device-status')).toContainText('9:41');
+  await expect(page.locator('#screenMenuButton')).toBeVisible();
+  await page.locator('#screenMenuButton').click();
+  await expect(page.locator('#screenNavigation [data-go="ride-home"]')).toBeVisible();
 });
 
 test('all five workspaces are navigable', async ({ page }) => {
@@ -26,9 +31,10 @@ test('all five workspaces are navigable', async ({ page }) => {
     ['business', 'Business workspace', 'business-dashboard']
   ];
   for (const [role, title, screen] of roles) {
-    await page.locator('.role-switch [data-role="' + role + '"]').click();
+    await page.locator('.mobile-rolebar [data-role="' + role + '"]').click();
     await expect(page.locator('#workspaceName')).toHaveText(title);
     await expect(page.locator('#screenMount h1')).toBeVisible();
+    await page.locator('#screenMenuButton').click();
     await expect(page.locator('#screenNavigation [data-go="' + screen + '"]')).toBeVisible();
   }
 });
@@ -86,12 +92,28 @@ test('receiver routes damaged parcel to issue reporting, not receipt', async ({ 
 test('business workspace exposes operations, analytics and billing', async ({ page }) => {
   await page.goto('/app/?screen=business-dashboard');
   await expect(page.locator('#screenMount h1')).toHaveText('Your shipments, at a glance.');
+  await page.locator('#screenMenuButton').click();
   await page.locator('#screenNavigation [data-go="business-shipments"]').click();
   await expect(page.locator('#screenMount table')).toBeVisible();
+  await page.locator('#screenMenuButton').click();
   await page.locator('#screenNavigation [data-go="business-analytics"]').click();
   await expect(page.locator('#screenMount')).toContainText('Sample on-time');
+  await page.locator('#screenMenuButton').click();
   await page.locator('#screenNavigation [data-go="business-billing"]').click();
   await expect(page.locator('#screenMount')).toContainText('INV-DEMO-108');
+});
+
+
+test('desktop app presentation is a phone-sized viewport, not a desktop dashboard', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/app/');
+  const device = await page.locator('.phone-device').boundingBox();
+  expect(device.width).toBeLessThanOrEqual(420);
+  expect(device.width).toBeGreaterThanOrEqual(380);
+  await expect(page.locator('.mobile-rolebar')).toBeVisible();
+  await page.locator('#screenMenuButton').click();
+  await page.locator('#screenNavigation [data-go="ride-history"]').click();
+  await expect(page.locator('#screenMount h1')).toHaveText('Your recent rides.');
 });
 
 test('app is usable at a 320px viewport without document overflow', async ({ page }) => {

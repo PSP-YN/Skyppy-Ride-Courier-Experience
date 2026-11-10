@@ -4,13 +4,14 @@
 <body>
 <a class="skip" href="#screenContent">Skip to application content</a>
 <div class="demo-banner"><span class="demo-dot"></span> STATIC PRODUCT PROTOTYPE <span class="demo-divider">·</span> ALL DATA IS ILLUSTRATIVE <a href="/">Back to landing page ↗</a></div>
+<div class="device-stage"><div class="phone-device" aria-label="Skyppy mobile application preview"><div class="device-status"><span>9:41</span><span>● ● ●　▰</span></div>
 <header class="app-header">
   <a class="app-brand" href="/" aria-label="Skyppy landing page">skyppy<span></span></a>
   <div class="app-context"><small>YOUR WORKSPACE</small><strong id="workspaceName">Rider experience</strong></div>
   <nav class="role-switch" aria-label="Choose workspace">
     <button data-role="rider" class="active">Ride</button><button data-role="driver">Drive</button><button data-role="sender">Send</button><button data-role="receiver">Receive</button><button data-role="business">Business</button>
   </nav>
-  <div class="header-actions"><button id="notificationsButton" class="icon-button" aria-label="Open notifications">◌<i></i></button><button id="profileButton" class="avatar-button" aria-label="Open profile">PS</button><a class="exit-link" href="/">Exit app ↗</a></div>
+  <div class="header-actions"><button id="screenMenuButton" class="screen-menu-button" aria-expanded="false" aria-controls="screenNavigation">☷ <span>Screens</span></button><button id="notificationsButton" class="icon-button" aria-label="Open notifications">◌<i></i></button><button id="profileButton" class="avatar-button" aria-label="Open profile">PS</button><a class="exit-link" href="/">Exit app ↗</a></div>
 </header>
 <div class="app-layout">
   <aside class="app-sidebar">
@@ -25,6 +26,7 @@
   </main>
 </div>
 <nav class="mobile-rolebar" aria-label="Switch app workspace"><button data-role="rider" class="active"><b>⌂</b><span>Ride</span></button><button data-role="sender"><b>□</b><span>Send</span></button><button data-role="driver"><b>⌁</b><span>Drive</span></button><button data-role="receiver"><b>✓</b><span>Receive</span></button><button data-role="business"><b>▦</b><span>Business</span></button></nav>
+</div><p class="device-caption">INTERACTIVE MOBILE APP PREVIEW <span>·</span> 46 SCREENS <span>·</span> SWITCH WORKSPACES BELOW</p></div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <div id="modal" class="modal-backdrop" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close dialog">×</button><p class="eyebrow">DEMO ACTION</p><h2 id="modalTitle">Preview action</h2><p id="modalBody">This is a local prototype action.</p><div class="modal-actions"><button class="button button-outline" id="modalCancel">Close</button><button class="button button-primary" id="modalConfirm">Continue</button></div></section></div>
 <script src="/app/app.js" defer></script>
