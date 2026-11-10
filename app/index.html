@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#172522"><meta name="description" content="Explore the complete static Skyppy app concept across rider, driver, sender, receiver and business journeys."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="/app/app.css"><title>Skyppy App — Experience prototype</title></head>
+<body>
+<a class="skip" href="#screenContent">Skip to application content</a>
+<div class="demo-banner"><span class="demo-dot"></span> STATIC PRODUCT PROTOTYPE <span class="demo-divider">·</span> ALL DATA IS ILLUSTRATIVE <a href="/">Back to landing page ↗</a></div>
+<header class="app-header">
+  <a class="app-brand" href="/" aria-label="Skyppy landing page">skyppy<span></span></a>
+  <div class="app-context"><small>YOUR WORKSPACE</small><strong id="workspaceName">Rider experience</strong></div>
+  <nav class="role-switch" aria-label="Choose workspace">
+    <button data-role="rider" class="active">Ride</button><button data-role="driver">Drive</button><button data-role="sender">Send</button><button data-role="receiver">Receive</button><button data-role="business">Business</button>
+  </nav>
+  <div class="header-actions"><button id="notificationsButton" class="icon-button" aria-label="Open notifications">◌<i></i></button><button id="profileButton" class="avatar-button" aria-label="Open profile">PS</button><a class="exit-link" href="/">Exit app ↗</a></div>
+</header>
+<div class="app-layout">
+  <aside class="app-sidebar">
+    <div class="sidebar-top"><span class="sidebar-label">WORKSPACE MENU</span><span class="demo-chip">DEMO</span></div>
+    <nav id="screenNavigation" aria-label="Application screens"></nav>
+    <div class="sidebar-bottom"><div class="sample-card"><span class="sample-icon">✳</span><b>Built for clarity.</b><p>Every screen is a static preview. No real bookings or transactions are created.</p></div><button data-go="settings" class="sidebar-utility">⚙ Settings</button><button data-go="help" class="sidebar-utility">? Help & support</button></div>
+  </aside>
+  <main class="app-main" id="screenContent" tabindex="-1">
+    <div class="screen-toolbar"><div class="breadcrumbs"><a href="/">Home</a><span>/</span><span id="crumbRole">Rider</span><span>/</span><b id="crumbScreen">Overview</b></div><div class="toolbar-right"><span class="location-chip"><i></i> Mysuru, India</span><span class="sample-chip">Sample workspace</span></div></div>
+    <div id="screenMount" aria-live="polite"></div>
+    <footer class="app-footer"><span>SKYPPY · INDEPENDENT STATIC CONCEPT</span><span><a href="/case-study.html">Case study</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></footer>
+  </main>
+</div>
+<nav class="mobile-rolebar" aria-label="Switch app workspace"><button data-role="rider" class="active"><b>⌂</b><span>Ride</span></button><button data-role="sender"><b>□</b><span>Send</span></button><button data-role="driver"><b>⌁</b><span>Drive</span></button><button data-role="receiver"><b>✓</b><span>Receive</span></button><button data-role="business"><b>▦</b><span>Business</span></button></nav>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<div id="modal" class="modal-backdrop" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close dialog">×</button><p class="eyebrow">DEMO ACTION</p><h2 id="modalTitle">Preview action</h2><p id="modalBody">This is a local prototype action.</p><div class="modal-actions"><button class="button button-outline" id="modalCancel">Close</button><button class="button button-primary" id="modalConfirm">Continue</button></div></section></div>
+<script src="/app/app.js" defer></script>
+</body></html>
